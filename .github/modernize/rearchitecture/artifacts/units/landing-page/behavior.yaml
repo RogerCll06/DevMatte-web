@@ -1,0 +1,23 @@
+unit: landing-page
+side_effects:
+  - source_loc: "assets/js/main.js"
+    effect: "Updates year, animations, counters and navigation state."
+    must_preserve: true
+branches:
+  - source_loc: "assets/js/main.js"
+    condition: "contact validation fails"
+    behavior: "Shows inline validation and does not send the request."
+    must_preserve: true
+error_paths:
+  - source_loc: "assets/js/main.js"
+    trigger: "contact API returns an error"
+    outcome: "Shows the API error in the form status."
+    contract: "No navigation; visible error message."
+    must_preserve: true
+concurrency:
+  model: async
+  tx_boundary:
+    source_loc: "assets/js/main.js"
+    scope: "Single contact fetch request."
+    isolation: "none"
+    must_preserve: true

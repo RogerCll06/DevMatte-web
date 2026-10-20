@@ -1,0 +1,9 @@
+unit: booking
+bindings:
+  - type: route-declaration
+    name: "data-calendly-url"
+    source_loc: "index.html"
+    target: "booking.js"
+    must_appear_in_target: true
+    notes: "Public Calendly URL is supplied by HTML configuration."
+runtime_config: []

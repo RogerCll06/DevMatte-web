@@ -1,0 +1,41 @@
+user_intent:
+  raw_request: "Agregar el logo oficial y reorganizar todo el proyecto aplicando una arquitectura adecuada."
+  inferred_acceptance:
+    - "Logo oficial visible en header, footer y favicon."
+    - "Recursos visuales organizados sin romper sus rutas."
+    - "Cotizador, Calendly, portafolio, contacto y API siguen funcionando."
+    - "Arquitectura aplicada documentada."
+  cleanup_required: true
+strategy: phased
+runtime_reachable:
+  - index.html
+  - assets/css/styles.css
+  - assets/js/main.js
+  - assets/js/portfolio.js
+  - assets/js/projects-data.js
+  - assets/js/booking.js
+  - assets/js/estimator.js
+  - server.js
+must_rewrite:
+  - path: index.html
+    reason: "Actualizar referencias al logo oficial y favicon."
+  - path: assets/js/projects-data.js
+    reason: "Apuntar las imágenes al directorio centralizado de recursos."
+  - path: assets/css/styles.css
+    reason: "Definir presentación consistente del logo oficial."
+copy_as_is:
+  - assets/js/main.js
+  - assets/js/portfolio.js
+  - assets/js/booking.js
+  - assets/js/estimator.js
+  - server.js
+legacy_allowed_to_remain:
+  - logo_DevMatte.webp
+  - "Plataforma Etour.webp"
+  - "Plataforma GoMedic.webp"
+  - "Plataforma SprRAI.webp"
+  - "Porta_Creuza.webp"
+defer_cleanup:
+  - "Eliminar duplicados binarios de la raíz después de validar el despliegue en el entorno objetivo."
+full_rewrite_reason: null
+implementation_rule: "La reorganización conserva los contratos HTTP y las APIs globales del navegador."

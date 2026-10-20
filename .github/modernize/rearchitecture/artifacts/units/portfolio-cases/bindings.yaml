@@ -1,0 +1,9 @@
+unit: portfolio-cases
+bindings:
+  - type: convention
+    name: "window.projectsData"
+    source_loc: "assets/js/projects-data.js"
+    target: "portfolio.js and main.js"
+    must_appear_in_target: true
+    notes: "Classic scripts load the data before consumers."
+runtime_config: []

@@ -7,51 +7,66 @@
     <title>DevMatte | Ingeniería digital que impulsa negocios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Raleway:wght@300;500;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: { ink: "#08111f", navy: "#0d1b2e", electric: "#38bdf8", gold: "#d5b56b" },
-            fontFamily: { sans: ["DM Sans", "sans-serif"], display: ["Manrope", "sans-serif"] }
+            colors: { ink: "#0c3844", navy: "#004459", "teal-brand": "#5e99aa", silver: "#cbd5e1", "slate-dark": "#0f172a", electric: "#5e99aa", gold: "#d5b56b" },
+            fontFamily: { sans: ["Outfit", "sans-serif"], display: ["Raleway", "sans-serif"] }
           }
         }
       };
     </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <link rel="icon" type="image/webp" href="assets/images/logo_DevMatte.webp" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="assets/js/projects-data.js" defer></script>
+    <script src="assets/js/portfolio.js" defer></script>
+    <script src="assets/js/lead-magnet.js" defer></script>
+    <script src="assets/js/chatbot.js" defer></script>
+    <script src="assets/js/roi-calculator.js" defer></script>
+    <script src="assets/js/booking.js" defer></script>
+    <script src="assets/js/estimator.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
   </head>
-  <body class="bg-ink text-slate-200 font-sans">
+  <body class="text-slate-200 font-sans" data-calendly-url="https://calendly.com/jhon3122ahre/30min">
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header" id="top">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Navegación principal">
-        <a class="brand" href="#top" aria-label="DevMatte inicio"><img class="brand-logo" src="assets/images/logo.png" alt="DevMatte" onerror="this.hidden=true" /><span class="brand-fallback"><span class="brand-mark">D</span><span>dev<span class="brand-accent">matte</span></span></span></a>
+        <a class="brand" href="#top" aria-label="DevMatte inicio"><img class="brand-logo" src="assets/images/devmatte-horizontal-color.png" alt="DevMatte" /></a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><i data-lucide="menu"></i></button>
         <div class="nav-links" id="nav-links">
           <a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#faq">FAQ</a>
-          <a class="button button-small button-gold" href="#contacto">Agendar consultoría <i data-lucide="arrow-up-right"></i></a>
+          <button class="button button-small button-gold btn-schedule" type="button">Agendar consultoría <i data-lucide="calendar"></i></button>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="hero mx-auto max-w-7xl px-6 lg:px-8" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title">
         <canvas id="particle-canvas" aria-hidden="true"></canvas>
         <div class="hero-copy">
           <div class="eyebrow"><span></span> Ingeniería digital para negocios ambiciosos</div>
           <h1 id="hero-title">Convertimos ideas complejas en <em><span id="typing-text">ventaja competitiva.</span></em></h1>
-          <p class="hero-lead">Diseñamos y construimos productos digitales confiables que conectan estrategia, tecnología y resultados medibles.</p>
+          <p class="hero-lead">Desarrollamos soluciones estratégicas adecuadas a cada socio, conectando innovación, tecnología y resultados medibles.</p>
           <div class="flex flex-wrap gap-4">
             <a class="button button-primary" href="#contacto">Hablemos de tu proyecto <i data-lucide="arrow-up-right"></i></a>
             <a class="button button-ghost" href="#proyectos">Explorar capacidades <i data-lucide="play-circle"></i></a>
+            <button class="button button-schedule btn-schedule" type="button"><i data-lucide="calendar"></i> Agendar sesión técnica de 15 minutos</button>
           </div>
-          <div class="hero-proof"><span class="avatars"><b>G</b><b>C</b><b>S</b></span><span><strong>+50 proyectos</strong><br />entregados con impacto</span></div>
+          <div class="hero-proof"><span class="avatars"><b>G</b><b>C</b><b>S</b></span><span><strong>Miembro Activo de la Cámara de Comercio de Lima (CCL)</strong><br />+50 proyectos entregados con impacto</span></div>
         </div>
         <div class="hero-visual" aria-label="Panel de métricas de DevMatte">
           <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="hero-brand-signal" aria-hidden="true">
+            <span class="signal-ring signal-ring-one"></span><span class="signal-ring signal-ring-two"></span>
+            <img src="assets/images/devmatte-vertical-color.png" alt="" />
+          </div>
           <div class="dashboard-card">
             <div class="dashboard-top"><span class="status-dot"></span><span>Digital performance</span><span class="ml-auto text-xs text-slate-500">2024 — 2025</span></div>
             <div class="chart-title"><span>Impacto del negocio</span><strong>+68.4%</strong></div>
@@ -63,17 +78,88 @@
         </div>
       </section>
 
-      <section id="cotizador" class="section estimator-section mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="section-heading"><div><div class="eyebrow"><span></span> Cotizador express</div><h2>Una primera estimación para <em>empezar a planificar.</em></h2></div><p>Selecciona el tipo de solución y su complejidad. Recibirás un rango referencial y podrás enviarlo directamente por WhatsApp.</p></div>
-        <div class="estimator-card" data-aos="fade-up">
-          <div class="estimator-options"><label>¿Qué quieres construir?<select id="project-type"><option value="web">Web app</option><option value="mobile">App móvil</option><option value="cloud">Cloud y arquitectura</option><option value="consulting">Consultoría estratégica</option></select></label><label>Nivel de complejidad<select id="project-complexity"><option value="simple">Inicial</option><option value="medium">Intermedia</option><option value="complex">Avanzada</option></select></label><label>¿Cuándo quieres lanzarlo?<select id="project-time"><option value="flexible">Sin fecha fija</option><option value="fast">En 1 a 2 meses</option><option value="standard">En 3 a 4 meses</option><option value="long">En 5 meses o más</option></select></label><fieldset class="feature-options"><legend>Características deseadas</legend><label><input type="checkbox" value="design" /> UX/UI y prototipo</label><label><input type="checkbox" value="integrations" /> Integraciones</label><label><input type="checkbox" value="analytics" /> Analítica y métricas</label></fieldset><div class="estimate-result"><span>Rango referencial</span><strong id="estimate-value">US$ 3,000 — 6,000</strong><small>La propuesta final se define luego del discovery.</small></div><a class="button button-primary" id="estimate-whatsapp" href="https://wa.me/51985725930" target="_blank" rel="noreferrer">Solicitar por WhatsApp <i data-lucide="message-circle"></i></a></div>
-          <div class="estimator-visual"><i data-lucide="calculator"></i><span>Presupuesto orientativo</span><strong>Decisiones con contexto.</strong><p>Te ayudamos a priorizar el alcance correcto para tu inversión y tus objetivos.</p></div>
+      <section id="estimator-section" class="section estimator-section" aria-labelledby="estimator-title">
+        <div class="section-heading"><div><div class="eyebrow"><span></span> Cotizador express</div><h2 id="estimator-title">Una primera estimación para <em>empezar a planificar.</em></h2></div><p>Define el tipo de solución y sus módulos clave. Recibirás un rango referencial para orientar la siguiente conversación.</p></div>
+        <div class="estimator-wizard" data-aos="fade-up">
+          <div class="wizard-progress" aria-label="Progreso del cotizador">
+            <div class="wizard-progress-step active" data-progress="1"><span>01</span><strong>Solución</strong></div><i></i><div class="wizard-progress-step" data-progress="2"><span>02</span><strong>Alcance</strong></div><i></i><div class="wizard-progress-step" data-progress="3"><span>03</span><strong>Contacto</strong></div>
+          </div>
+          <form id="estimator-form" novalidate>
+            <section class="wizard-step active" data-step="1" aria-labelledby="step-one-title">
+              <div class="wizard-heading"><span class="tag">Paso 1 de 3</span><h3 id="step-one-title">¿Qué quieres construir?</h3><p>Selecciona la solución que mejor representa tu próximo desafío.</p></div>
+              <fieldset class="solution-options"><legend class="sr-only">Tipo de solución</legend>
+                <label class="solution-option"><input type="radio" name="solutionType" value="web" /><span><i data-lucide="globe-2"></i><strong>Web Enterprise / Sistema Web</strong><small>Plataformas, portales y productos SaaS.</small></span></label>
+                <label class="solution-option"><input type="radio" name="solutionType" value="mobile" /><span><i data-lucide="smartphone"></i><strong>App Móvil (iOS / Android)</strong><small>Experiencias móviles nativas o multiplataforma.</small></span></label>
+                <label class="solution-option"><input type="radio" name="solutionType" value="custom" /><span><i data-lucide="server-cog"></i><strong>Software a Medida / Backend Architecture</strong><small>Sistemas internos, APIs y arquitecturas robustas.</small></span></label>
+                <label class="solution-option"><input type="radio" name="solutionType" value="cloud" /><span><i data-lucide="cloud-cog"></i><strong>Migración e Infraestructura Cloud</strong><small>Modernización, escalabilidad y operación cloud.</small></span></label>
+              </fieldset><p class="wizard-error" data-error="solutionType" role="alert"></p>
+              <div class="wizard-actions"><span></span><button class="button button-primary wizard-next" type="button">Continuar <i data-lucide="arrow-right"></i></button></div>
+            </section>
+            <section class="wizard-step" data-step="2" aria-labelledby="step-two-title" hidden>
+              <div class="wizard-heading"><span class="tag">Paso 2 de 3</span><h3 id="step-two-title">Define el alcance inicial</h3><p>Elige los módulos clave que te gustaría considerar en la primera estimación.</p></div>
+              <fieldset class="feature-check-options"><legend class="sr-only">Módulos del proyecto</legend>
+                <label><input type="checkbox" name="features" value="auth" /><span><i data-lucide="shield-check"></i><strong>Autenticación y roles avanzados</strong><small>Usuarios, permisos y acceso seguro.</small></span></label>
+                <label><input type="checkbox" name="features" value="payments" /><span><i data-lucide="credit-card"></i><strong>Pasarelas de pago en línea</strong><small>Stripe, Culqi u otras integraciones.</small></span></label>
+                <label><input type="checkbox" name="features" value="analytics" /><span><i data-lucide="chart-no-axes-combined"></i><strong>Dashboard y reportes en tiempo real</strong><small>Indicadores para decidir con contexto.</small></span></label>
+                <label><input type="checkbox" name="features" value="ai" /><span><i data-lucide="bot"></i><strong>Integración con Inteligencia Artificial</strong><small>LLMs, APIs y automatización inteligente.</small></span></label>
+                <label><input type="checkbox" name="features" value="admin"><span><i data-lucide="layout-dashboard"></i><strong>Panel administrativo</strong><small>CMS, CRUD y gestión operativa.</small></span></label>
+              </fieldset>
+              <div class="wizard-actions"><button class="button button-ghost wizard-back" type="button"><i data-lucide="arrow-left"></i> Atrás</button><button class="button button-primary wizard-next" type="button">Ver estimación <i data-lucide="arrow-right"></i></button></div>
+            </section>
+            <section class="wizard-step" data-step="3" aria-labelledby="step-three-title" hidden>
+              <div class="wizard-heading"><span class="tag">Paso 3 de 3</span><h3 id="step-three-title">Tu estimación y datos de contacto</h3><p>Comparte tus datos para que el equipo prepare una respuesta precisa.</p></div>
+              <div class="estimate-summary"><div><span>Inversión aproximada</span><strong id="wizard-estimate-value">US$ 1,500 — 3,500</strong></div><div><span>Tiempo estimado</span><strong id="wizard-estimate-time">4 — 6 semanas</strong></div></div>
+              <div class="wizard-contact-grid"><label>Nombre completo<input name="nombre" type="text" autocomplete="name" required /><small></small></label><label>Correo electrónico<input name="email" type="email" autocomplete="email" required /><small></small></label><label>Empresa<input name="empresa" type="text" autocomplete="organization" required /><small></small></label><label>WhatsApp<input name="telefono" type="tel" autocomplete="tel" required /><small></small></label></div>
+              <p class="wizard-status" role="status" aria-live="polite"></p>
+              <div class="wizard-actions"><button class="button button-ghost wizard-back" type="button"><i data-lucide="arrow-left"></i> Atrás</button><button class="button button-primary" type="submit">Enviar Solicitud de Cotización Oficial <i data-lucide="send"></i></button></div>
+            </section>
+          </form>
+          <div class="wizard-success" hidden><i data-lucide="circle-check"></i><h3>¡Cotización enviada con éxito!</h3><p>Recibimos tu información. El equipo de DevMatte revisará el alcance y te contactará pronto.</p><div><a class="button button-primary" id="wizard-whatsapp" href="https://wa.me/51985725930" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> Continuar por WhatsApp</a><button class="button button-ghost wizard-reset" type="button">Crear otra estimación</button></div></div>
         </div>
       </section>
 
-      <section class="section roadmap-section mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="section-heading"><div><div class="eyebrow"><span></span> Nuestro proceso</div><h2>De la primera conversación al <em>producto en marcha.</em></h2></div><p>Una metodología transparente, colaborativa y enfocada en entregar valor desde el primer ciclo.</p></div>
-        <div class="roadmap" data-aos="fade-up"><div class="roadmap-line"></div><article class="roadmap-step active"><span>01</span><i data-lucide="search"></i><h3>Descubrimiento</h3><p>Entendemos el desafío, los usuarios y las oportunidades.</p></article><article class="roadmap-step"><span>02</span><i data-lucide="boxes"></i><h3>Arquitectura</h3><p>Definimos una base técnica segura y escalable.</p></article><article class="roadmap-step"><span>03</span><i data-lucide="code-2"></i><h3>Desarrollo</h3><p>Construimos en ciclos cortos con entregas visibles.</p></article><article class="roadmap-step"><span>04</span><i data-lucide="rocket"></i><h3>Despliegue</h3><p>Lanzamos, medimos y evolucionamos contigo.</p></article></div>
+      <section id="roi-calculator" class="section roi-section" aria-labelledby="roi-title">
+        <div class="section-heading"><div><div class="eyebrow"><span></span> Diagnóstico financiero</div><h2 id="roi-title">Descubre cuánto puede recuperar <em>tu operación.</em></h2></div><p>Modela el impacto de automatizar tareas repetitivas con una estimación referencial basada en tus datos.</p></div>
+        <div class="roi-calculator" data-roi-calculator>
+          <div class="roi-controls">
+            <div class="roi-control"><label for="roi-employees">Empleados involucrados <output data-roi-output="employees">10</output></label><input id="roi-employees" name="employees" type="range" min="1" max="50" value="10" step="1" /></div>
+            <div class="roi-control"><label for="roi-hours">Horas semanales por empleado <output data-roi-output="weeklyHours">10</output></label><input id="roi-hours" name="weeklyHours" type="range" min="1" max="40" value="10" step="1" /></div>
+            <div class="roi-control"><label for="roi-salary">Sueldo mensual promedio</label><div class="roi-input-row"><input id="roi-salary" name="monthlySalary" type="number" min="1" step="50" value="1500" /><select name="currency" aria-label="Moneda del sueldo"><option value="USD">USD</option><option value="PEN">PEN</option></select></div></div>
+            <div class="roi-control"><label for="roi-automation">Automatización deseada <output data-roi-output="automation">70%</output></label><input id="roi-automation" name="automation" type="range" min="10" max="90" value="70" step="5" /></div>
+            <p class="roi-note">La calculadora usa 160 horas laborales mensuales como referencia y una tasa de conversión de 3.75 PEN por USD únicamente para comparar escenarios.</p>
+          </div>
+          <div class="roi-results">
+            <div class="roi-result-card"><span>💰 Ahorro financiero anual estimado</span><strong data-roi-result="savings">US$ 0</strong></div>
+            <div class="roi-result-card"><span>⏱️ Horas de trabajo recuperadas al año</span><strong data-roi-result="hours">0 h</strong></div>
+            <div class="roi-result-card"><span>📈 Eficiencia operativa</span><strong data-roi-result="efficiency">+0%</strong></div>
+            <div class="roi-result-card"><span>⏳ Recuperación estimada de inversión</span><strong data-roi-result="payback">0 meses</strong><small data-roi-result="solution">Según la solución seleccionada</small></div>
+            <div class="roi-actions"><a class="button button-primary" data-roi-cta href="https://wa.me/51985725930" target="_blank" rel="noreferrer">Agendar Sesión de Diagnóstico con Luis Yslao <i data-lucide="calendar"></i></a><button class="button button-ghost roi-email-button" type="button" data-roi-send><span class="roi-email-button-copy"><strong>Enviar diagnóstico</strong><small>Recíbelo en tu correo</small></span><i data-lucide="send"></i></button></div>
+            <p class="roi-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="roi-email-modal" data-roi-email-modal hidden>
+          <div class="roi-email-dialog" role="dialog" aria-modal="true" aria-labelledby="roi-email-title" aria-describedby="roi-email-description">
+            <button class="roi-email-close" type="button" data-roi-email-close aria-label="Cerrar ventana"><i data-lucide="x"></i></button>
+            <span class="roi-email-kicker"><i data-lucide="sparkles"></i> Informe ejecutivo ROI</span>
+            <h3 id="roi-email-title">Lleva este diagnóstico contigo</h3>
+            <p id="roi-email-description">Recibe un resumen claro de tu escenario de ahorro, horas recuperables y tiempo estimado de retorno.</p>
+            <form data-roi-email-form novalidate>
+              <label for="roi-email-address">Correo corporativo</label>
+              <input id="roi-email-address" name="email" type="email" autocomplete="email" placeholder="nombre@empresa.com" required />
+              <small class="roi-email-error" data-roi-email-error role="alert"></small>
+              <div class="roi-email-actions">
+                <button class="button button-ghost" type="button" data-roi-email-close>Ahora no</button>
+                <button class="button button-primary" type="submit"><span>Enviar informe</span><i data-lucide="arrow-up-right"></i></button>
+              </div>
+              <p class="roi-email-privacy"><i data-lucide="lock-keyhole"></i> Usaremos tu correo únicamente para dar seguimiento a este diagnóstico.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+     <section class="section roadmap-section">
+        <div class="section-heading"><div><div class="eyebrow"><span></span> Metodología DevMatte</div><h2>De la primera conversación al <em>producto en marcha.</em></h2></div><p>Combinamos Design Thinking para entender y validar la oportunidad con Scrum para construir en Sprints de 2 semanas, con avances visibles y mejora continua.</p></div>
+        <div class="roadmap" data-aos="fade-up"><div class="roadmap-line"></div><article class="roadmap-step active"><span>01</span><h3>Empatizar</h3><p>Comprendemos a las personas, el contexto y las necesidades reales del negocio.</p></article><article class="roadmap-step"><span>02</span><h3>Definir e idear</h3><p>Priorizamos el desafío y proponemos alternativas estratégicas de solución.</p></article><article class="roadmap-step"><span>03</span><h3>Prototipar y testear</h3><p>Validamos experiencias y decisiones técnicas antes de construir el producto.</p></article><article class="roadmap-step"><span>04</span><h3>Scrum: Sprints de 2 semanas</h3><p>Desarrollamos, revisamos y mejoramos entregables hasta ponerlos en marcha.</p></article></div>
       </section>
 
       <section class="metrics border-y border-white/10" aria-label="Resultados de DevMatte">
@@ -82,35 +168,45 @@
         </div>
       </section>
 
-      <section id="nosotros" class="section mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="section-heading"><div><div class="eyebrow"><span></span> El estándar DevMatte</div><h2>La tecnología es poderosa cuando <em>resuelve lo importante.</em></h2></div><p>Somos una consultora de transformación digital que acompaña a organizaciones a tomar mejores decisiones, operar con agilidad y crear nuevas oportunidades.</p></div>
-        <div class="principles">
-          <article class="principle-card"><div class="icon-box"><i data-lucide="target"></i></div><h3>Propósito</h3><p>Construir soluciones digitales relevantes, simples de usar y alineadas a los objetivos reales de cada negocio.</p></article>
-          <article class="principle-card"><div class="icon-box"><i data-lucide="compass"></i></div><h3>Visión</h3><p>Ser el socio tecnológico de confianza para las empresas que lideran el cambio en Latinoamérica.</p></article>
-          <article class="principle-card"><div class="icon-box"><i data-lucide="gem"></i></div><h3>Valores</h3><p>Excelencia, compromiso e innovación en cada conversación, cada línea de código y cada entrega.</p></article>
+      <section class="booking-cta-section" aria-labelledby="booking-cta-title">
+        <div class="booking-cta-panel">
+          <div><div class="eyebrow"><span></span> Acceso directo al equipo técnico</div><h2 id="booking-cta-title">Agendar Sesión Técnica de 15 Minutos con un <em>Arquitecto de Software.</em></h2><p>Conversemos sobre tu desafío, arquitectura y próximos pasos, sin compromisos.</p></div>
+          <button class="button button-primary btn-schedule" type="button"><i data-lucide="calendar"></i> Reservar mi sesión</button>
         </div>
+      </section>
+
+      <section id="nosotros" class="section">
+        <div class="section-heading"><div><div class="eyebrow"><span></span> Nosotros</div><h2>Soluciones estratégicas para <em>cada socio.</em></h2></div><p>Desarrollamos soluciones estratégicas adecuándonos a cada socio, con una visión de largo plazo y foco en la excelencia tecnológica.</p></div>
+        <div class="principles">
+          <article class="principle-card"><div class="icon-box"><i data-lucide="target"></i></div><h3>Misión</h3><p>Desarrollar soluciones estratégicas adecuándonos a cada socio.</p></article>
+          <article class="principle-card"><div class="icon-box"><i data-lucide="compass"></i></div><h3>Visión</h3><p>Ser la mejor empresa consultora en TI.</p></article>
+          <article class="principle-card"><div class="icon-box"><i data-lucide="gem"></i></div><h3>Valores</h3><p>Innovación, Compromiso y Excelencia.</p></article>
+        </div>
+        <p class="founders-note">Liderada por sus cofundadores: <strong>Luis Yslao</strong>, CEO &amp; Co-Fundador, y <strong>Jhon Concepción</strong>, CTO &amp; Co-Fundador.</p>
       </section>
 
       <section id="servicios" class="section services-section">
         <div class="mx-auto max-w-7xl px-6 lg:px-8"><div class="section-heading"><div><div class="eyebrow"><span></span> Cómo podemos ayudarte</div><h2>Capacidades para avanzar con <em>claridad y velocidad.</em></h2></div><p>Desde la estrategia hasta la operación, combinamos pensamiento de producto, diseño y tecnología para generar valor sostenible.</p></div>
           <div class="service-grid">
-            <article class="service-card service-featured"><span class="service-number">01</span><i data-lucide="layers-3"></i><h3>Transformación digital</h3><p>Convertimos procesos y oportunidades en experiencias digitales que mejoran la eficiencia, el servicio y la toma de decisiones.</p><ul><li>Estrategia y discovery</li><li>Diseño de producto</li><li>Automatización inteligente</li></ul><a href="#contacto">Conocer más <i data-lucide="arrow-up-right"></i></a></article>
-            <article class="service-card"><span class="service-number">02</span><i data-lucide="code-2"></i><h3>Software a medida</h3><p>Aplicaciones web y plataformas robustas, preparadas para escalar con tu operación.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
-            <article class="service-card"><span class="service-number">03</span><i data-lucide="smartphone"></i><h3>Apps móviles</h3><p>Experiencias móviles nativas y multiplataforma centradas en las personas.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
-            <article class="service-card"><span class="service-number">04</span><i data-lucide="wrench"></i><h3>Evolución y soporte</h3><p>Mejoramos, aseguramos y mantenemos tus productos digitales siempre disponibles.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
+            <article class="service-card service-featured"><span class="service-number">01</span><i data-lucide="code-2"></i><h3>Software a medida</h3><p>Aplicaciones y plataformas diseñadas a la medida de cada operación y objetivo de negocio.</p><ul><li>Arquitectura orientada al negocio</li><li>Desarrollo web y móvil</li><li>Integraciones escalables</li></ul><a href="#contacto">Conocer más <i data-lucide="arrow-up-right"></i></a></article>
+            <article class="service-card"><span class="service-number">02</span><i data-lucide="headphones"></i><h3>Mantenimiento y Health Desk</h3><p>Soporte, gestión de incidencias y continuidad operativa bajo SLA.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
+            <article class="service-card"><span class="service-number">03</span><i data-lucide="refresh-cw"></i><h3>Transformación Digital</h3><p>Modernización de procesos, plataformas e infraestructura cloud.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
+            <article class="service-card"><span class="service-number">04</span><i data-lucide="brain-circuit"></i><h3>Proyectos Especiales — IA y Machine Learning</h3><p>Soluciones de inteligencia artificial y analítica avanzada para decisiones de mayor impacto.</p><a href="#contacto">Conversemos <i data-lucide="arrow-up-right"></i></a></article>
           </div>
+          <div class="quality-pillars" aria-label="Pilares de calidad"><strong>Pilares de calidad:</strong><span>Seguridad</span><span>Rendimiento</span><span>Mantenibilidad</span><span>Usabilidad</span></div>
         </div>
       </section>
 
-      <section id="proyectos" class="section mx-auto max-w-7xl px-6 lg:px-8">
+      <section id="proyectos" class="section">
         <div class="section-heading"><div><div class="eyebrow"><span></span> Trabajo que habla por nosotros</div><h2>Proyectos con impacto <em>visible.</em></h2></div><p>Una selección de productos y plataformas donde la estrategia se convirtió en resultados.</p></div>
-        <div class="filter-row" role="group" aria-label="Filtrar proyectos"><button class="filter active" data-filter="all">Todos</button><button class="filter" data-filter="health">Salud</button><button class="filter" data-filter="platform">Plataformas</button><button class="filter" data-filter="ai">Inteligencia artificial</button></div>
-        <div class="project-grid">
-          <article class="project-card project-large" data-tilt data-category="health" data-project="gomedic"><div class="project-art art-blue"><img class="project-image" src="assets/images/portafolio/success_case_1.png" alt="Vista previa de GoMedic" onerror="this.hidden=true" /><span>GoMedic</span><i data-lucide="heart-pulse"></i><small class="device-label">WEB PLATFORM</small></div><div class="project-info"><div><span class="tag">Salud digital · En producción</span><h3>GoMedic</h3></div><button class="open-project" aria-label="Explorar GoMedic"><i data-lucide="arrow-up-right"></i></button></div></article>
-          <article class="project-card" data-tilt data-category="platform" data-project="creuza"><div class="project-art art-sand"><img class="project-image" src="assets/images/portafolio/success_case_2.png" alt="Vista previa de Portal Creuza" onerror="this.hidden=true" /><span>Creuza</span><i data-lucide="shopping-bag"></i><small class="device-label">CLOUD COMMERCE</small></div><div class="project-info"><div><span class="tag">E-commerce · Plataforma cloud</span><h3>Portal Creuza</h3></div><button class="open-project" aria-label="Explorar Portal Creuza"><i data-lucide="arrow-up-right"></i></button></div></article>
-          <article class="project-card" data-tilt data-category="ai" data-project="sprrai"><div class="project-art art-purple"><img class="project-image" src="assets/images/portafolio/success_case_3.png" alt="Vista previa de SprrAI" onerror="this.hidden=true" /><span>SprrAI</span><i data-lucide="brain-circuit"></i><small class="device-label">AI ENGINE</small></div><div class="project-info"><div><span class="tag">IA aplicada · Innovación</span><h3>SprrAI</h3></div><button class="open-project" aria-label="Explorar SprrAI"><i data-lucide="arrow-up-right"></i></button></div></article>
-          <article class="project-card" data-tilt data-category="platform" data-project="etour"><div class="project-art art-green"><img class="project-image" src="assets/images/portafolio/success_case_4.png" alt="Vista previa de eTour" onerror="this.hidden=true" /><span>eTour</span><i data-lucide="map"></i><small class="device-label">MOBILE EXPERIENCE</small></div><div class="project-info"><div><span class="tag">Turismo · Experiencia digital</span><h3>eTour</h3></div><button class="open-project" aria-label="Explorar eTour"><i data-lucide="arrow-up-right"></i></button></div></article>
+        <div class="filter-row" role="group" aria-label="Filtrar proyectos">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="finance" aria-pressed="false">Finanzas</button>
+          <button class="filter" type="button" data-filter="real-estate" aria-pressed="false">Inmobiliario</button>
+          <button class="filter" type="button" data-filter="communications" aria-pressed="false">Comunicaciones</button>
+          <button class="filter" type="button" data-filter="special-ai" aria-pressed="false">Proyectos Especiales / IA</button>
         </div>
+        <div class="project-grid portfolio-grid" id="portfolio-grid" aria-live="polite"></div>
       </section>
 
       <section id="faq" class="section faq-section"><div class="mx-auto max-w-4xl px-6 lg:px-8"><div class="section-heading block text-center"><div class="eyebrow justify-center"><span></span> Preguntas frecuentes</div><h2>Empecemos por lo <em>esencial.</em></h2></div><div class="faq-list">
@@ -120,15 +216,76 @@
         <details><summary>¿Cuánto cuesta una consultoría inicial?<i data-lucide="plus"></i></summary><p>La primera conversación es gratuita. Nos permite entender tu desafío y recomendarte el siguiente paso más conveniente.</p></details>
       </div></div></section>
 
-      <section id="contacto" class="contact-section mx-auto max-w-7xl px-6 lg:px-8"><div class="contact-panel"><div class="contact-copy"><div class="eyebrow"><span></span> El siguiente paso empieza aquí</div><h2>¿Tienes un desafío? <em>Hagámoslo posible.</em></h2><p>Cuéntanos qué quieres construir, mejorar o transformar. Nuestro equipo te responderá en un máximo de 24 horas hábiles.</p><div class="contact-details"><a href="mailto:luis.yslao@devmatte.com"><i data-lucide="mail"></i>luis.yslao@devmatte.com</a><a href="tel:+51985725930"><i data-lucide="phone"></i>+51 985 725 930</a><span><i data-lucide="map-pin"></i>Av. Cuba Nro. 926, Jesús María, Lima</span></div><div class="neon-map"><iframe title="Mapa de la oficina de DevMatte" src="https://www.openstreetmap.org/export/embed.html?bbox=-77.05%2C-12.09%2C-77.03%2C-12.07&amp;layer=mapnik"></iframe></div></div>
+      <div class="lead-modal" id="lead-magnet-modal" hidden>
+        <div class="lead-modal-backdrop" data-lead-close></div>
+        <section class="lead-modal-card" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+          <button class="modal-close" type="button" aria-label="Cerrar formulario" data-lead-close><i data-lucide="x"></i></button>
+          <span class="tag">RECURSO B2B</span>
+          <h2 id="lead-modal-title">Descarga la ficha técnica</h2>
+          <p id="lead-modal-project">Conoce el enfoque, la arquitectura y los resultados de este caso.</p>
+          <form id="lead-magnet-form" novalidate>
+            <input type="hidden" name="projectId" />
+            <label>Nombre completo<input name="nombre" required autocomplete="name" /></label>
+            <label>Correo corporativo / profesional<input name="email" type="email" required autocomplete="email" /></label>
+            <label>Empresa / Organización<input name="empresa" required autocomplete="organization" /></label>
+            <p class="lead-form-status" role="status" aria-live="polite"></p>
+            <button class="button button-primary" type="submit">Descargar ficha técnica <i data-lucide="download"></i></button>
+          </form>
+        </section>
+      </div>
+
+      <aside class="corporate-chatbot" id="corporate-chatbot">
+        <div class="chatbot-panel" hidden>
+          <div class="chatbot-header"><strong>DevMatte Concierge</strong><button type="button" aria-label="Cerrar chatbot" data-chat-close><i data-lucide="x"></i></button></div>
+          <p class="chatbot-welcome">¡Hola! Bienvenido a DevMatte. ¿Cómo podemos ayudarte a impulsar tu proyecto hoy?</p>
+          <div class="chatbot-options">
+            <button type="button" data-chat-action="estimate">📌 Quiero cotizar un software a medida</button>
+            <button type="button" data-chat-action="portfolio">📂 Ver casos de éxito de mi rubro</button>
+            <button type="button" data-chat-action="whatsapp">💬 Hablar directamente con Luis Yslao (Líder Técnico)</button>
+          </div>
+        </div>
+        <button class="chatbot-toggle" type="button" aria-label="Abrir asistente DevMatte"><span class="chatbot-status-dot"></span><i data-lucide="message-circle"></i><span>¿Hablamos?</span></button>
+      </aside>
+
+      <section id="contacto" class="contact-section"><div class="contact-panel"><div class="contact-copy"><div class="eyebrow"><span></span> El siguiente paso empieza aquí</div><h2>¿Tienes un desafío? <em>Hagámoslo posible.</em></h2><p>Cuéntanos qué quieres construir, mejorar o transformar. Nuestro equipo te responderá en un máximo de 24 horas hábiles.</p><div class="contact-details"><a href="mailto:luis.yslao@devmatte.com"><i data-lucide="mail"></i>luis.yslao@devmatte.com</a><a href="tel:+51985725930"><i data-lucide="phone"></i>+51 985 725 930</a><span><i data-lucide="map-pin"></i>Av. Cuba Nro. 926, Jesús María, Lima - Perú</span></div><div class="neon-map"><iframe title="Mapa de la oficina de DevMatte" src="https://www.openstreetmap.org/export/embed.html?bbox=-77.05%2C-12.09%2C-77.03%2C-12.07&amp;layer=mapnik"></iframe></div></div>
         <form id="contact-form" class="contact-form" novalidate><label>Nombre completo<input name="nombre" type="text" placeholder="¿Cómo te llamas?" required /><small></small></label><label>Correo corporativo<input name="email" type="email" placeholder="nombre@empresa.com" required /><small></small></label><label>Teléfono / WhatsApp<input name="telefono" type="tel" placeholder="+51 000 000 000" /><small></small></label><label>Empresa u organización<input name="empresa" type="text" placeholder="Nombre de tu empresa" /><small></small></label><label>Servicio de interés<select name="servicioInteres"><option value="">Selecciona una opción</option><option>Transformación digital</option><option>Software a medida</option><option>Aplicación móvil</option><option>Cloud y arquitectura</option><option>Consultoría estratégica</option></select><small></small></label><label>Cuéntanos sobre tu proyecto<textarea name="mensaje" rows="4" placeholder="¿Qué desafío quieres resolver?" required></textarea><small></small></label><button class="button button-primary w-full" type="submit"><span>Enviar mensaje</span><i data-lucide="arrow-up-right"></i></button><p class="form-status" role="status"></p></form>
       </div></section>
     </main>
 
-    <footer class="footer"><div class="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-end lg:justify-between lg:px-8"><div><a class="brand" href="#top"><img class="brand-logo" src="assets/images/logo.png" alt="DevMatte" onerror="this.hidden=true" /><span class="brand-fallback"><span class="brand-mark">D</span><span>dev<span class="brand-accent">matte</span></span></span></a><p class="footer-tagline">Tecnología con propósito.<br />Resultados que perduran.</p></div><div class="footer-links"><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="mailto:luis.yslao@devmatte.com">Contacto</a></div><div class="footer-bottom"><span>© <span id="year"></span> DevMatte. Todos los derechos reservados.</span><span>Representante: Luis Yslao · Lima, Perú</span></div></div></footer>
+    <footer class="footer"><div class="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-end lg:justify-between lg:px-8"><div><a class="brand" href="#top" aria-label="DevMatte inicio"><img class="brand-logo" src="assets/images/devmatte-horizontal-white.png" alt="DevMatte" /></a><p class="footer-tagline">Tecnología con propósito.<br />Resultados que perduran.</p></div><div class="footer-links"><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="mailto:luis.yslao@devmatte.com">Contacto</a></div><div class="footer-bottom"><span>© <span id="year"></span> DevMatte. Todos los derechos reservados.</span><span>Luis Yslao — CEO &amp; Co-Fundador · Jhon Concepción — CTO &amp; Co-Fundador</span></div></div></footer>
     <a class="whatsapp" href="https://wa.me/51985725930" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp"><i data-lucide="message-circle"></i></a>
-    <div class="modal-backdrop" id="project-modal" aria-hidden="true"><div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" aria-label="Cerrar"><i data-lucide="x"></i></button><span class="tag" id="modal-tag"></span><h2 id="modal-title"></h2><p id="modal-description"></p><div class="modal-tech" id="modal-tech"></div><div class="modal-result"><i data-lucide="trending-up"></i><span><strong id="modal-result"></strong><small>resultado destacado</small></span></div></div></div>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="assets/js/main.js"></script>
+    <button class="booking-fab btn-schedule" type="button" aria-label="Agendar sesión técnica de 15 minutos"><i data-lucide="calendar"></i><span>Agendar sesión</span></button>
+    <div class="modal-backdrop" id="project-modal" aria-hidden="true">
+      <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" tabindex="-1">
+        <div class="modal-header">
+          <div><span class="tag" id="modal-tag"></span><h2 id="modal-title"></h2><p id="modal-description"></p></div>
+          <button class="modal-close" type="button" aria-label="Cerrar detalle del proyecto"><i data-lucide="x"></i></button>
+        </div>
+        <div class="modal-scroll">
+          <div class="modal-preview">
+            <div class="modal-preview-toolbar" aria-hidden="true"><span class="window-dot red"></span><span class="window-dot yellow"></span><span class="window-dot green"></span><span id="modal-url">devmatte.com / caso-de-exito</span></div>
+            <div class="modal-preview-frame"><img id="modal-image" src="" alt="" /></div>
+          </div>
+          <div class="modal-content-grid">
+            <section class="modal-section modal-problem"><div class="modal-section-heading"><i data-lucide="triangle-alert"></i><h3>El problema</h3></div><p id="modal-problem"></p></section>
+            <section class="modal-section"><div class="modal-section-heading"><i data-lucide="workflow"></i><h3>La solución implementada</h3></div><p id="modal-solution"></p></section>
+            <section class="modal-section modal-stack"><div class="modal-section-heading"><i data-lucide="layers-3"></i><h3>Stack tecnológico</h3></div><div class="modal-tech" id="modal-tech"></div></section>
+            <section class="modal-section modal-kpis"><div class="modal-section-heading"><i data-lucide="chart-no-axes-combined"></i><h3>Resultados y métricas de impacto</h3></div><div class="modal-metrics" id="modal-metrics"></div></section>
+          </div>
+          <div class="modal-actions"><a class="button button-primary" href="#contacto" id="modal-contact"><span>Solicitar demo técnica similar</span><i data-lucide="arrow-up-right"></i></a><a class="modal-whatsapp" id="modal-whatsapp" href="https://wa.me/51985725930" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> Consultar por WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop booking-backdrop" id="booking-modal" aria-hidden="true">
+      <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title" aria-describedby="booking-description" tabindex="-1">
+        <div class="booking-header">
+          <div><span class="tag">Agenda técnica · 15 minutos</span><h2 id="booking-title">Consultoría Tecnológica Estratégica</h2><p id="booking-description">Converse directamente sobre la arquitectura y los requerimientos de su próximo proyecto con nuestro equipo técnico.</p></div>
+          <button class="modal-close booking-close" type="button" aria-label="Cerrar agenda"><i data-lucide="x"></i></button>
+        </div>
+        <div class="booking-widget" id="booking-widget">
+          <div class="booking-placeholder"><i data-lucide="calendar-clock"></i><h3>Selecciona el horario que mejor te convenga</h3><p>El calendario se cargará de forma segura cuando nos compartas tu enlace público de Calendly.</p><a class="button button-ghost" href="mailto:luis.yslao@devmatte.com?subject=Agendar%20sesión%20técnica">Solicitar disponibilidad por correo <i data-lucide="mail"></i></a></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

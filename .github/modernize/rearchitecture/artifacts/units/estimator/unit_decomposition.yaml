@@ -1,0 +1,7 @@
+unit: estimator
+commit: false
+candidate_splits:
+  - id: "assets/js/estimator.js:calculation"
+    drivers: [concern_split]
+    rationale: "Price calculation, wizard navigation, validation and transport can evolve independently as the estimator grows."
+    source_slice: {file: assets/js/estimator.js, lines: [1, 100]}

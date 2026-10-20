@@ -1,0 +1,7 @@
+unit: portfolio-cases
+commit: false
+candidate_splits:
+  - id: "assets/js/main.js:project-modal"
+    drivers: [concern_split]
+    rationale: "Project rendering and project modal are related features but currently have separate responsibilities in different scripts."
+    source_slice: {file: assets/js/main.js, lines: [75, 130]}

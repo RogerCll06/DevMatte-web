@@ -11,6 +11,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "pdfkit": "^0.16.0",
+    "sharp": "^0.33.5"
   }
 }

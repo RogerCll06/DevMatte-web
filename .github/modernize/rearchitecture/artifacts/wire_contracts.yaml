@@ -1,0 +1,51 @@
+contracts:
+  - name: contact-form
+    unit: server-api
+    type: rest
+    stability: frozen
+    source_loc: "server.js"
+    contract:
+      method: "POST"
+      path: "/api/contact"
+      request: "{nombre,email,telefono?,empresa?,mensaje,servicioInteres?}"
+      response: "{success:boolean,message:string} or {error:string}"
+      error: "400 validation, 503 SMTP unavailable, 500 delivery failure"
+      auth: "none"
+    target_contract:
+      method: "Express route POST /api/contact"
+      notes: "Preserve JSON response shape and status semantics."
+    semantic_divergence: []
+
+  - name: estimate-form
+    unit: server-api
+    type: rest
+    stability: frozen
+    source_loc: "server.js"
+    contract:
+      method: "POST"
+      path: "/api/estimate"
+      request: "{solutionType,solutionLabel,features[],featureLabels[],estimate,contact}"
+      response: "{success:boolean,message:string} or {error:string}"
+      error: "400 validation, 503 SMTP unavailable, 500 delivery failure"
+      auth: "none"
+    target_contract:
+      method: "Express route POST /api/estimate"
+      notes: "Preserve estimator payload and response status semantics."
+    semantic_divergence: []
+
+  - name: calendly-booking
+    unit: booking
+    type: sdk
+    stability: must_preserve
+    source_loc: "index.html"
+    contract:
+      method: "iframe navigation"
+      path: "https://calendly.com/jhon3122ahre/30min"
+      request: "Calendly URL plus visual query parameters"
+      response: "Embedded scheduling experience"
+      error: "Fallback modal remains usable if iframe cannot load"
+      auth: "Calendly-managed"
+    target_contract:
+      method: "Create lazy iframe when booking modal opens"
+      notes: "Do not send Calendly credentials through the application."
+    semantic_divergence: []

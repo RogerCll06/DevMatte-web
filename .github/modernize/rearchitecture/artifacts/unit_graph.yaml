@@ -1,0 +1,87 @@
+units:
+  - name: landing-page
+    trigger: page
+    trigger_detail: "GET /"
+    source_anchors:
+      - path: index.html
+      - path: assets/js/main.js
+    exported_signature:
+      - method: "DOM landing page with navigation and contact-form handoff"
+        source_loc: "index.html"
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on:
+      - unit: server-api
+        via: "POST /api/contact"
+    shared_refs:
+      - module: browser-dom-conventions
+        used_fields: [selectors, modal-open-class]
+
+  - name: portfolio-cases
+    trigger: page
+    trigger_detail: "click project card in #portfolio-grid"
+    source_anchors:
+      - path: assets/js/portfolio.js
+      - path: assets/js/projects-data.js
+    exported_signature:
+      - method: "window.projectsData: Project[]"
+        source_loc: "assets/js/projects-data.js"
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: browser-dom-conventions
+        used_fields: [selectors, modal-open-class]
+
+  - name: booking
+    trigger: page
+    trigger_detail: "click .btn-schedule"
+    source_anchors:
+      - path: assets/js/booking.js
+    exported_signature:
+      - method: "window.openBookingModal(): void"
+        source_loc: "assets/js/booking.js"
+        stability: must_preserve
+      - method: "window.closeBookingModal(): void"
+        source_loc: "assets/js/booking.js"
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: browser-dom-conventions
+        used_fields: [modal-open-class]
+
+  - name: estimator
+    trigger: api
+    trigger_detail: "submit #estimator-form"
+    source_anchors:
+      - path: assets/js/estimator.js
+    exported_signature:
+      - method: "POST /api/estimate with estimator payload"
+        source_loc: "assets/js/estimator.js"
+        stability: frozen
+    dynamic_entrypoints: []
+    depends_on:
+      - unit: server-api
+        via: "POST /api/estimate"
+    shared_refs:
+      - module: browser-dom-conventions
+        used_fields: [modal-open-class]
+
+  - name: server-api
+    trigger: api
+    trigger_detail: "POST /api/contact and POST /api/estimate"
+    source_anchors:
+      - path: server.js
+    exported_signature:
+      - method: "POST /api/contact -> JSON"
+        source_loc: "server.js"
+        stability: frozen
+      - method: "POST /api/estimate -> JSON"
+        source_loc: "server.js"
+        stability: frozen
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: server-mail-transport
+        used_fields: [sender-email, destination-email, smtp-password]

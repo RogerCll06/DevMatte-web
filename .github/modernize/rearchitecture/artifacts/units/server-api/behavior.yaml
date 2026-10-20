@@ -1,0 +1,28 @@
+unit: server-api
+side_effects:
+  - source_loc: "server.js"
+    effect: "Sends contact and estimate notifications through Gmail SMTP."
+    must_preserve: true
+branches:
+  - source_loc: "server.js"
+    condition: "required fields, email or estimate are invalid"
+    behavior: "Returns HTTP 400 with a JSON error."
+    must_preserve: true
+error_paths:
+  - source_loc: "server.js"
+    trigger: "EMAIL_PASS missing"
+    outcome: "Returns HTTP 503 without attempting delivery."
+    contract: "{error:string}"
+    must_preserve: true
+  - source_loc: "server.js"
+    trigger: "SMTP authentication or delivery failure"
+    outcome: "Returns HTTP 503 for auth errors or HTTP 500 otherwise."
+    contract: "{error:string}"
+    must_preserve: true
+concurrency:
+  model: async
+  tx_boundary:
+    source_loc: "server.js"
+    scope: "One SMTP send per HTTP request."
+    isolation: "none"
+    must_preserve: true

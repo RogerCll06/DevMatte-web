@@ -1,0 +1,27 @@
+unit: server-api
+bindings:
+  - type: route-declaration
+    name: "POST /api/contact"
+    source_loc: "server.js"
+    target: "contact handler"
+    must_appear_in_target: true
+    notes: "Public JSON endpoint."
+  - type: route-declaration
+    name: "POST /api/estimate"
+    source_loc: "server.js"
+    target: "estimate handler"
+    must_appear_in_target: true
+    notes: "Public JSON endpoint."
+runtime_config:
+  - key: "EMAIL_USER"
+    source_loc: "server.js"
+    source: env
+    default_value: "destination email"
+    must_appear_in_target: true
+    notes: "SMTP sender."
+  - key: "EMAIL_PASS"
+    source_loc: "server.js"
+    source: env
+    default_value: ""
+    must_appear_in_target: true
+    notes: "SMTP secret; must stay server-side."

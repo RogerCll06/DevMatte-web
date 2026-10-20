@@ -1,0 +1,30 @@
+flows:
+  - name: modal-scroll-lock
+    medium: static
+    key: "body.modal-open"
+    writer:
+      unit: booking
+      source_loc: "assets/js/booking.js"
+    reader:
+      unit: landing-page
+      source_loc: "assets/css/styles.css"
+    pairing: matched
+    must_preserve: true
+    must_confirm: null
+    verification_hint: "Opening any modal must prevent background page scrolling."
+    notes: "Project modal and booking modal share this visual state."
+
+  - name: project-data-global
+    medium: static
+    key: "window.projectsData"
+    writer:
+      unit: portfolio-cases
+      source_loc: "assets/js/projects-data.js"
+    reader:
+      unit: landing-page
+      source_loc: "assets/js/main.js"
+    pairing: matched
+    must_preserve: true
+    must_confirm: null
+    verification_hint: "Project card click must populate project modal content."
+    notes: "Global is deliberate because scripts are loaded as classic browser scripts."

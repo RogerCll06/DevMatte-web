@@ -1,0 +1,30 @@
+modules:
+  - name: browser-dom-conventions
+    kind: config
+    source_loc: "index.html"
+    used_by_units: [landing-page, portfolio-cases, booking, estimator]
+    fields:
+      - name: selectors
+        type: "CSS selector strings"
+      - name: modal-open-class
+        type: "body class name"
+    god_class: false
+    split_candidate: false
+    migration_strategy: copy
+    notes: "Existing IDs/classes are browser-facing compatibility points."
+
+  - name: server-mail-transport
+    kind: config
+    source_loc: "server.js"
+    used_by_units: [server-api]
+    fields:
+      - name: sender-email
+        type: "environment-backed email"
+      - name: destination-email
+        type: "string"
+      - name: smtp-password
+        type: "environment-backed secret"
+    god_class: false
+    split_candidate: false
+    migration_strategy: wrap
+    notes: "Keep credentials externalized; never expose .env to the client."

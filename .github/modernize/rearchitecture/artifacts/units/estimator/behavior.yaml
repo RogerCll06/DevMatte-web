@@ -1,0 +1,23 @@
+unit: estimator
+side_effects:
+  - source_loc: "assets/js/estimator.js"
+    effect: "Sends the completed estimate to /api/estimate and displays success."
+    must_preserve: true
+branches:
+  - source_loc: "assets/js/estimator.js"
+    condition: "solution or required contact field is missing"
+    behavior: "Prevents progression/submission and shows inline errors."
+    must_preserve: true
+error_paths:
+  - source_loc: "assets/js/estimator.js"
+    trigger: "estimate API returns non-2xx"
+    outcome: "Shows the returned error and keeps the form available."
+    contract: "No success state on failed request."
+    must_preserve: true
+concurrency:
+  model: async
+  tx_boundary:
+    source_loc: "assets/js/estimator.js"
+    scope: "Single estimate submission request."
+    isolation: "none"
+    must_preserve: true

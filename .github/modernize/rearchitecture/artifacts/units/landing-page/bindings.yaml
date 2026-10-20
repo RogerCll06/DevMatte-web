@@ -1,0 +1,15 @@
+unit: landing-page
+bindings:
+  - type: route-declaration
+    name: "GET / fallback"
+    source_loc: "server.js"
+    target: "index.html"
+    must_appear_in_target: true
+    notes: "Express serves the single landing page."
+runtime_config:
+  - key: "PORT"
+    source_loc: "server.js"
+    source: env
+    default_value: "3000"
+    must_appear_in_target: true
+    notes: "HTTP listening port."

@@ -1,0 +1,18 @@
+unit: booking
+side_effects:
+  - source_loc: "assets/js/booking.js"
+    effect: "Creates the Calendly iframe lazily and locks document scrolling."
+    must_preserve: true
+branches:
+  - source_loc: "assets/js/booking.js"
+    condition: "modal backdrop or Escape is activated"
+    behavior: "Closes the modal and restores focus to the trigger."
+    must_preserve: true
+error_paths: []
+concurrency:
+  model: sync
+  tx_boundary:
+    source_loc: "assets/js/booking.js"
+    scope: "Modal state mutation and iframe creation."
+    isolation: "none"
+    must_preserve: true

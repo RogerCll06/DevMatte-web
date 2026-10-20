@@ -1,0 +1,9 @@
+unit: estimator
+bindings:
+  - type: route-declaration
+    name: "POST /api/estimate"
+    source_loc: "assets/js/estimator.js"
+    target: "server.js"
+    must_appear_in_target: true
+    notes: "JSON payload is assembled from the wizard state."
+runtime_config: []

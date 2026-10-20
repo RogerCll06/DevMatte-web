@@ -1,0 +1,7 @@
+unit: server-api
+commit: false
+candidate_splits:
+  - id: "server.js:contact-and-estimate-handlers"
+    drivers: [concern_split, change_cadence_split]
+    rationale: "Transport setup, validation, email templates and delivery are currently colocated and should become separate backend layers as the API expands."
+    source_slice: {file: server.js, lines: [1, 164]}

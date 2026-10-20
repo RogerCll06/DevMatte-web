@@ -1,10 +1,3 @@
-const projects = {
-  gomedic: { title: "GoMedic", tag: "Salud digital · En producción", description: "Una experiencia de salud digital que conecta pacientes y profesionales mediante una plataforma confiable, simple y accesible.", result: "99.9% Uptime", tech: ["React", "Node.js", "AWS"] },
-  creuza: { title: "Portal Creuza", tag: "E-commerce · Plataforma cloud", description: "Un portal comercial preparado para centralizar el catálogo, mejorar la conversión y acompañar el crecimiento de la operación.", result: "+50k usuarios", tech: ["React", "Node.js", "Cloud"] },
-  sprrai: { title: "SprrAI", tag: "IA aplicada · Innovación", description: "Inteligencia artificial aplicada para convertir información compleja en recomendaciones claras y decisiones accionables.", result: "3x decisiones más rápidas", tech: ["Python", "AI", "Azure"] },
-  etour: { title: "eTour", tag: "Turismo · Experiencia digital", description: "Una plataforma que transforma la planificación de viajes en una experiencia visual, ágil y memorable para cada visitante.", result: "+42% conversión", tech: ["Flutter", "Node.js", "Cloud"] }
-};
-
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
@@ -76,24 +69,6 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: .7 });
 counters.forEach((counter) => counterObserver.observe(counter));
 
-const priceTable = { web: { simple: [3000, 6000], medium: [6000, 12000], complex: [12000, 25000] }, mobile: { simple: [5000, 9000], medium: [9000, 18000], complex: [18000, 35000] }, cloud: { simple: [2500, 5000], medium: [5000, 12000], complex: [12000, 25000] }, consulting: { simple: [800, 1500], medium: [1500, 3500], complex: [3500, 7000] } };
-const updateEstimate = () => {
-  const typeValue = $("#project-type").value;
-  const complexity = $("#project-complexity").value;
-  const [minimum, maximum] = priceTable[typeValue][complexity];
-  const featureCount = $$(".feature-options input:checked").length;
-  const multiplier = 1 + featureCount * .1;
-  const estimate = [Math.round(minimum * multiplier), Math.round(maximum * multiplier)];
-  const estimateLabel = `${estimate[0].toLocaleString("en-US")} — ${estimate[1].toLocaleString("en-US")}`;
-  $("#estimate-value").textContent = `US$ ${estimateLabel}`;
-  const features = $$(".feature-options input:checked").map((input) => input.parentElement.textContent.trim()).join(", ") || "Sin características adicionales";
-  $("#estimate-whatsapp").href = `https://wa.me/51985725930?text=${encodeURIComponent(`Hola DevMatte, quiero cotizar ${$("#project-type").selectedOptions[0].textContent}, complejidad ${$("#project-complexity").selectedOptions[0].textContent}, lanzamiento ${$("#project-time").selectedOptions[0].textContent}. Características: ${features}. Estimación referencial: US$ ${estimateLabel}.`)}`;
-};
-$("#project-type").addEventListener("change", updateEstimate);
-$("#project-complexity").addEventListener("change", updateEstimate);
-$("#project-time").addEventListener("change", updateEstimate);
-$$(".feature-options input").forEach((input) => input.addEventListener("change", updateEstimate));
-
 $("#menu-toggle").addEventListener("click", () => {
   const menu = $("#nav-links");
   const expanded = menu.classList.toggle("open");
@@ -104,34 +79,57 @@ $$(".nav-links a").forEach((link) => link.addEventListener("click", () => {
   $("#menu-toggle").setAttribute("aria-expanded", "false");
 }));
 
-$$(".filter").forEach((filter) => filter.addEventListener("click", () => {
-  $$(".filter").forEach((item) => item.classList.remove("active"));
-  filter.classList.add("active");
-  const selected = filter.dataset.filter;
-  $$(".project-card").forEach((card) => {
-    card.hidden = selected !== "all" && card.dataset.category !== selected;
-  });
-}));
-
 const modal = $("#project-modal");
-$$(".open-project").forEach((button) => button.addEventListener("click", () => {
-  const project = projects[button.closest(".project-card").dataset.project];
+const modalClose = modal?.querySelector(".modal-close");
+let modalTrigger = null;
+const openProjectModal = (projectId) => {
+  const project = (window.projectsData || []).find((item) => item.id === projectId);
+  if (!project || !modal) return;
   $("#modal-title").textContent = project.title;
-  $("#modal-tag").textContent = project.tag;
+  $("#modal-tag").textContent = project.categoryLabel;
   $("#modal-description").textContent = project.description;
-  $("#modal-result").textContent = project.result;
-  $("#modal-tech").innerHTML = project.tech.map((technology) => `<span>${technology}</span>`).join("");
+  $("#modal-problem").textContent = project.problem;
+  $("#modal-solution").textContent = project.solution;
+  $("#modal-image").src = project.image;
+  $("#modal-image").alt = `Vista previa ampliada de ${project.title}`;
+  $("#modal-url").textContent = project.demoUrl.replace(/^https?:\/\//, "");
+  const tech = $("#modal-tech");
+  tech.replaceChildren(...project.stack.map((technology) => {
+    const badge = document.createElement("span");
+    badge.textContent = technology;
+    return badge;
+  }));
+  const metrics = $("#modal-metrics");
+  metrics.replaceChildren(...project.metrics.map((metric) => {
+    const card = document.createElement("div");
+    card.className = "modal-metric";
+    const value = document.createElement("strong");
+    value.textContent = metric;
+    card.append(value);
+    return card;
+  }));
+  $("#modal-whatsapp").href = `https://wa.me/51985725930?text=${encodeURIComponent(`Hola DevMatte, quiero conocer una solución similar a ${project.title}.`)}`;
+  modalTrigger = document.activeElement;
   modal.classList.add("visible");
   modal.setAttribute("aria-hidden", "false");
-  $(".modal-close").focus();
-}));
-const closeModal = () => {
+  document.body.classList.add("modal-open");
+  modalClose?.focus();
+};
+$("#portfolio-grid").addEventListener("portfolio:open", (event) => openProjectModal(event.detail.projectId));
+const closeProjectModal = () => {
+  if (!modal || !modal.classList.contains("visible")) return;
   modal.classList.remove("visible");
   modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  if (modalTrigger instanceof HTMLElement) modalTrigger.focus();
+  modalTrigger = null;
 };
-$(".modal-close").addEventListener("click", closeModal);
-modal.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
-document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeModal(); });
+modalClose?.addEventListener("click", closeProjectModal);
+modal?.addEventListener("click", (event) => { if (event.target === modal) closeProjectModal(); });
+$("#modal-contact").addEventListener("click", closeProjectModal);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && modal?.classList.contains("visible")) closeProjectModal();
+});
 
 const form = $("#contact-form");
 const validateField = (field) => {
@@ -157,7 +155,7 @@ form.addEventListener("submit", async (event) => {
   }
   const button = $("button[type=submit]", form);
   button.disabled = true;
-  $("span", button).textContent = "Enviando...";
+  $("span", button).textContent = "Procesando...";
   status.textContent = "";
   try {
     const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
@@ -172,7 +170,9 @@ form.addEventListener("submit", async (event) => {
     status.textContent = error.message || "No pudimos enviar el mensaje. Escríbenos a luis.yslao@devmatte.com.";
     status.className = "form-status error";
   } finally {
-    button.disabled = false;
-    $("span", button).textContent = "Enviar mensaje";
+    window.setTimeout(() => {
+      button.disabled = false;
+      $("span", button).textContent = "Enviar mensaje";
+    }, 60000);
   }
 });

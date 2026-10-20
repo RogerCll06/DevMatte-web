@@ -1,0 +1,7 @@
+unit: landing-page
+commit: false
+candidate_splits:
+  - id: "assets/js/main.js"
+    drivers: [concern_split]
+    rationale: "The current browser entrypoint combines navigation, animations, counters, contact handling and project modal behavior."
+    source_slice: {file: assets/js/main.js, lines: [1, 174]}

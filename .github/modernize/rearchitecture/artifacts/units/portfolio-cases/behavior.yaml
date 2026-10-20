@@ -1,0 +1,18 @@
+unit: portfolio-cases
+side_effects:
+  - source_loc: "assets/js/portfolio.js"
+    effect: "Renders project cards and dispatches portfolio:open."
+    must_preserve: true
+branches:
+  - source_loc: "assets/js/main.js"
+    condition: "project id matches projectsData"
+    behavior: "Populates and opens the detail modal."
+    must_preserve: true
+error_paths: []
+concurrency:
+  model: sync
+  tx_boundary:
+    source_loc: "assets/js/portfolio.js"
+    scope: "Synchronous DOM render."
+    isolation: "none"
+    must_preserve: true
